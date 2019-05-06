@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <div id="footer">
    <?=$this->config->item('footer_desc')?> <em>From:<a href="https://alone88.cn" target="_blank" title="Alone88">Alone88</a></em>
 </div>

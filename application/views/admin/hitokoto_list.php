@@ -4,16 +4,8 @@
  * Author:Alone88
  * Github:https://github.com/anhao
  */
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-if (!($this->session->has_userdata('email') && $this->session->has_userdata('uid'))) {
-    if ($this->session->userdata('level') != 1) {
-        header('Location:' . base_url('Home') . '');
-    }
-}
-
-if ($this->session->userdata('level') != 1) {
-    header('Location:' . base_url('Home') . '');
-}
 $this->load->view('comm/header', $this->data);
 
 ?>

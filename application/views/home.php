@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('comm/header', $this->data);
 ?>
 <main class="mdl-layout__content animated fadeIn">
