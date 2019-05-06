@@ -25,6 +25,13 @@ class Action extends CI_Controller
     }
 
     /**
+     * 设置csrf
+     */
+    public function setcsrf(){
+        $csrf_hase= $this->security->get_csrf_hash();
+        exit(json(array('csrf_hash'=>$csrf_hase)));
+    }
+    /**
      * 用户注册
      */
     public function User_into()
@@ -78,7 +85,7 @@ class Action extends CI_Controller
 
 
     /**
-     *
+     * 重置密码
      */
     public function reset_pass()
     {
@@ -107,7 +114,7 @@ class Action extends CI_Controller
     }
 
     /**
-     *
+     * 设置重置密码
      */
     public function set_pass()
     {
@@ -199,6 +206,9 @@ class Action extends CI_Controller
         header('Location:' . base_url('Home') . '');
     }
 
+    /**
+     *
+     */
     public function User_update()
     {
         $user['uid']=$this->input->post('uid',true);

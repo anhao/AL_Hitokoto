@@ -1,11 +1,11 @@
 
 //获取当前请求地址
 const url = document.location.origin
-
+let csrf_token = $('meta[name="CSRF_TOKEN_NAME"]').attr('content')
 //为ajax 添加csrf
 $.ajaxSetup({
     data: {
-        'CSRF_TOKEN_NAME': $('meta[name="CSRF_TOKEN_NAME"]').attr('content')
+        'CSRF_TOKEN_NAME': csrf_token
     }
 });
 
@@ -40,13 +40,15 @@ $.fn.extend({
 
 
 //login
+
 $('#login').click(function () {
     user = {
-         email: $('#email').val(),
-         password: $('#password').val(),
+        email: $('#email').val(),
+        password: $('#password').val(),
         code: $('#captcha').val(),
-     }
-     ajax(url+'/Action/User_login',user,'/User')
+        'CSRF_TOKEN_NAME': csrf_token
+    }
+    ajax(url+'/Action/User_login',user,'/User')
 })
 
 //register
@@ -100,7 +102,7 @@ $('#add').click(function () {
         author:$('#hitokoto_author').val(),
         catname:$('input[type=radio]:checked').attr('data-catname'),
         gid:$('input[type=radio]:checked').attr('data-gid')
-}
+    }
     ajax(url+'/Action/hitokoto_add',hitokoto,'/User')
 })
 
@@ -132,13 +134,13 @@ $('#update_member').click(function () {
 //hitokoto_del
 $('.hitokoto-del').click(function () {
     let id = $(this).attr('data-id-index');
-       layer.confirm('你确定要删除吗',{
-           btn:['确定','取消']
-       },function () {
-           ajax(url + '/Action/hitokoto_del', {id: id}, '/User/hitokoto_list')
-       },function () {
-           layer.msg("您已取消删除")
-       })
+    layer.confirm('你确定要删除吗',{
+        btn:['确定','取消']
+    },function () {
+        ajax(url + '/Action/hitokoto_del', {id: id}, '/User/hitokoto_list')
+    },function () {
+        layer.msg("您已取消删除")
+    })
 })
 
 //hitokoto_shenghe
@@ -258,23 +260,24 @@ function ajax(url,data,reloadurl) {
         method:'post',
         data:data,
         beforeSend(){
-            layer.load();
-        },
-        success(res) {
-            if(res.code>0){
-                layer.close(layer.load())
-                layer.msg(res.msg,{icon:6});
-                page_reload(1000,false,reloadurl)
-            }else{
-                layer.close(layer.load())
-                layer.msg(res.msg,{icon:5})
-                page_reload(1000)
-            }
-        },
-        error(){
-            layer.msg('请求异常',{icon:2})
-            page_reload(1000)
+            layer.load()
         }
+    }).done(function (res) {
+        if(res.code>0){
+            layer.close(layer.load())
+            layer.msg(res.msg,{icon:6});
+            page_reload(1000,false,reloadurl)
+        }else{
+            layer.close(layer.load())
+            layer.msg(res.msg,{icon:5})
+            $.get('/Action/setcsrf').done(function (res) {
+                csrf_token = res.csrf_hash
+            })
+            // page_reload(1000)
+        }
+    }).fail(function () {
+        layer.msg('请求异常',{icon:2})
+        page_reload(1000)
     })
 }
 
