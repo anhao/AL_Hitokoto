@@ -1,0 +1,150 @@
+.background {
+    -webkit-filter: brightness(0.6);
+    -ms-filter: brightness(0.6);
+    -moz-filter: brightness(0.6);
+    filter: brightness(0.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
+}
+a{
+    text-decoration: none;
+}
+.nav{
+    color:#000;
+}
+.hitokoto-fullpage {
+    width: 55%;
+}
+
+.hitokoto-content {
+    /*border-radius: 2px;*/
+    padding: 80px 56px;
+    margin-bottom: 80px;
+}
+
+.hitokoto-fullpage {
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    margin-top: 35vh;
+    margin-bottom: 35vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '寰蒋闆呴粦', Arial, sans-serif;
+}
+
+.hitokoto-fullpage .bracket {
+    font-size: 30px;
+}
+
+.hitokoto-fullpage .bracket.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.hitokoto-fullpage .bracket.right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.hitokoto-fullpage .word {
+    font-size: 2.3rem;
+    text-align: center;
+    line-height: 50px;
+    word-break: normal;
+    margin: 0;
+    padding: 15px 50px;
+}
+
+.hitokoto-fullpage .author {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    float: right;
+    margin-top: 40px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 5px;
+    right: 15px;
+    margin-bottom: 0px;
+    text-align: right;
+    z-index: 4;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '寰蒋闆呴粦', Arial, sans-serif;
+}
+
+.login {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    max-width: 600px;
+    top: 100px
+}
+
+.member-table{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+.author{
+    padding-top: 10px;
+}
+.author-name{
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+}
+.tr-text{
+    font-size: 17px;
+}
+.hitokoto-all{
+    margin-left: 3%;
+}
+.pagination{
+    width: 100%;
+
+}
+.page-class{
+    position: relative;
+    margin-right: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left:30%;
+    top:20px;
+    bottom:30px;
+    font-size: 18px;
+}
+#member_edit{
+    text-decoration: none;
+}
+.page{
+    position:relative;
+    left:10%;
+}
+.page a{
+    color:#fff;
+}
+.cat_add{
+    position: fixed;
+    right:20px;
+    top:80px;
+}
+@media screen and (max-width: 600px){
+    .page-class{
+        position: relative;
+        margin-right: 20px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        left: 12%;
+        font-size: 18px;
+    }
+}
