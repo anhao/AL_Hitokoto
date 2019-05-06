@@ -71,4 +71,26 @@ encode 返回的数据类型
 charset 返回的编码格式，默认utf8
 cat 返回一言的分类，默认不设置，随机返回一种分类
 
+#### 伪静态
+必须要开启伪静态
+Apache 伪静态
+```apacheconfig
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+```
 
+Nginx伪静态
+```nginx
+if (!-f $request_filename){
+	set $rule_0 1$rule_0;
+}
+if (!-d $request_filename){
+	set $rule_0 2$rule_0;
+}
+if ($rule_0 = "21"){
+	rewrite ^/(.*)$ /index.php/$1 last;
+}
+
+```
