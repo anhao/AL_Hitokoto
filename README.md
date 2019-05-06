@@ -1,5 +1,6 @@
 ﻿# AL_Hitokoto
-Hitokoto,基于php开发的Hitokoto/ヒトコト 一言管理系统,
+Hitokoto,基于php+mysql开发的Hitokoto/ヒトコト 一言管理系统  
+已添加3800多条一言数据
 
 ## 演示
 演示地址：http://hitokoto.alapi.cn/
@@ -46,6 +47,10 @@ Hitokoto,基于php开发的Hitokoto/ヒトコト 一言管理系统,
 redis 是限制API接口请求频率的
 配置文件在 `application/helpers/redis_helper.php`
 可以修改redis 服务器地址和端口，还有限制的频率。
+
+#### 管理员
+默认管理员账号 `im@alone88.cn` 密码：`admin888`  
+添加管理员的话注册用户，把用户的数据表的level改成1就可以了
 
 ## API
 Hitokoto一言API,默认随机返回一条json格式数据
