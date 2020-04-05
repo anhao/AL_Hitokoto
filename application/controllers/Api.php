@@ -66,7 +66,7 @@ class Api extends CI_Controller
 
             } else if ($encode === 'js') {
                 header('Content-type: application/x-javascript; charset=gbk');
-                echo '(function hitokoto(){var hitokoto = "' . $this->utf8_to_gbk($res['hitokoto']) . '";var dom = document.querySelector("' . '#hitokoto' . '");dom.innerHTML=' . $this->utf8_to_gbk($res['hitokoto']) . ';})';
+                echo '(function hitokoto(){var hitokoto = "' . $this->utf8_to_gbk($res['hitokoto']) . '";var dom = document.querySelector("' . '#hitokoto' . '");dom.innerHTML=hitokoto;})';
             } else {
                 echo json($res, 'gbk',true);
             }
@@ -91,7 +91,7 @@ class Api extends CI_Controller
 
             } else if ($encode === 'js') {
                 header('Content-type: application/x-javascript; charset=utf8');
-                echo '(function hitokoto(){var hitokoto = "' . ($res['hitokoto']) . '";var dom = document.querySelector("' . '#hitokoto' . '");dom.innerHTML=' . ($res['hitokoto']) . ';})';
+                echo '(function hitokoto(){var hitokoto = "' . ($res['hitokoto']) . '";var dom = document.querySelector("' . '#hitokoto' . '");dom.innerHTML=hitokoto;})';
             } else {
                 echo json($res, 'utf8',true);
             }
